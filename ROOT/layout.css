@@ -1,0 +1,462 @@
+body {
+  background-color: #e9e9e9;
+  margin: 0;
+  height: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+textarea {
+  resize: none;
+}
+
+/* หน้าหลัก */
+/* navbar */
+.navbarlist {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100%;
+  width: 12%;
+  background-color: white;
+  z-index: 70;
+}
+
+#name-app {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 15px;
+  height: 10%;
+}
+
+.menu-item {
+  width: 100%;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.menu {
+  margin: 10px 10px;
+  padding: 15px 10px;
+  border: #000 0.5px solid;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.menu.active,
+.menu.active:hover {
+  background-color: aqua;
+}
+
+.menu:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
+  transform: translateX(5px);
+}
+
+.line {
+  width: 80%;
+  margin: 0 auto ;
+  border-bottom: 1px solid #ccc;
+}
+
+#line2 {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#profilecontainer {
+  position: relative;
+  width: 100%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-section {
+  border: black 1px solid;
+  border-radius: 5px;
+  width: calc(100% - 16px);
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.profile-section:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+#roleDisplay {
+  border-right: #000 1px solid;
+  padding: 2px;
+}
+
+#username {
+  max-width: 100px;
+  font-size: 12px;
+}
+
+#arrowIcon {
+  display: flex;
+}
+
+#logoutMenu {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 100%;
+  width: 150px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  display: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 71;
+  justify-content: center;
+  align-items: center;
+}
+
+#logoutBtn {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  cursor: pointer;
+}
+
+#logoutBtn button {
+  background-color: transparent;
+  border: none;
+  padding: 16px 16px;
+  cursor: pointer;
+}
+
+#logoutBtn:hover {
+  background-color: #f0f0f0;
+}
+
+/* header */
+.header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 60px;
+  width: 87.9%;
+  background-color: white;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pageTitle {
+  font-size: 24px;
+  font-weight: bold;
+  margin-left: 20px;
+  display: flex;
+  height: 60px;
+  max-width: 20%;
+  align-items: center;
+}
+
+.patientBlock {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+  width: 50%;
+  text-align: center;
+  align-items: center;
+  display: inline-flex;
+  gap: 20px;
+}
+
+.patientBlock button {
+  padding: 5px 10px;
+  height: 30px;
+  margin-left: 10px;
+
+}
+
+#patientDisplay {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+.patientInfo {
+  text-align: left;
+  margin-right: 10px;
+}
+
+/* กรอบmain content */
+.content {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 83%;
+  height: 83.5%;
+  margin: 20px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  z-index: 60;
+}
+/* ตาราง */
+table:not(#drugTable,.result-table ,.summaryTable,.tablePredictModal) {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+table:not(.result-table) th {
+  background: green;
+  color: white;
+  font-weight: 600;
+  padding: 10px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-collapse: collapse;
+}
+table:not(#drugTable,.result-table,.summaryTable,#medicineTable,.detail-modal-medicine-table,#resultsTable,.tablePredictModal,#reasonTable) tbody {
+  display: block;
+  height: calc(83.5vh - 250px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+table:not(#drugTable,.result-table,.summaryTable,#medicineTable,.detail-modal-medicine-table,#resultsTable,.tablePredictModal) thead,
+table:not(#drugTable,.result-table,.summaryTable,#medicineTable,.detail-modal-medicine-table,#resultsTable,.tablePredictModal) tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  height: 50px;
+}
+
+table:not(.result-table) td{
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+  border-bottom: 1px solid #ddd;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+table:not(.result-table) th{
+  background: #007bff;
+  color: white;
+  font-weight: 600;
+}
+table tr:hover {
+  background: #f9f9f9;
+}
+/* ====== Pagination ====== */
+.pagination {
+  text-align: center;
+}
+
+.pagination button {
+  margin: 2px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #f0f0f0;
+  transition: background 0.2s ease;
+}
+
+.pagination button:hover {
+  background: #ddd;
+}
+
+.pagination button.active {
+  background: #007bff;
+  color: white;
+  font-weight: bold;
+}
+.dialogBG {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+.dialogContent {
+  background-color: white;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 1600px) {
+  .navbarlist {
+    width: 13%;
+  }
+
+  .header {
+    width: 86%;
+  }
+
+  .content {
+    width: 82%;
+  }
+
+  .profile-section {
+    width: calc(100% - 16px);
+  }
+
+  .pageTitle {
+    font-size: 22px;
+  }
+
+  table:not(#drugTable, .result-table, .summaryTable ,#reasonTable) tbody {
+    height: calc(83.5vh - 310px);
+  }
+
+  .dialogContent {
+    width: 380px;
+  }
+}
+
+/* MacBook-style: 2880×1800 @200% → 1440px CSS */
+@media (max-width: 1440px) {
+  .navbarlist {
+    width: 14%;
+  }
+
+  .header {
+    width: 85%;
+  }
+
+  .content {
+    width: 81%;
+  }
+
+  .profile-section {
+    width: calc(100% - 16px);
+  }
+
+  .pageTitle {
+    font-size: 21px;
+    max-width: 22%;
+  }
+
+  .patientBlock {
+    width: 45%;
+    gap: 15px;
+  }
+
+  table:not(#drugTable, .result-table, .summaryTable ,#reasonTable) tbody {
+    height: calc(83.5vh - 320px);
+  }
+
+  .dialogContent {
+    width: 370px;
+  }
+}
+
+/* Standard laptop: 1366×768 @100% */
+@media (max-width: 1366px) {
+  .navbarlist {
+    width: 15%;
+  }
+
+  .header {
+    width: 84%;
+  }
+
+  .content {
+    width: 80%;
+  }
+
+  .profile-section {
+    width: calc(100% - 16px);
+  }
+
+
+  #profilePic {
+    width: 40px;
+    height: 40px;
+  }
+
+  .pageTitle {
+    font-size: 20px;
+    max-width: 25%;
+  }
+
+  .patientBlock {
+    width: 40%;
+    gap: 10px;
+  }
+
+  table:not(#drugTable, .result-table, .summaryTable) tbody {
+    height: calc(83.5vh - 330px);
+  }
+
+  .dialogContent {
+    width: 350px;
+  }
+}
+
+/* Small laptop: 2560×1600 @200% → 1280px CSS */
+@media (max-width: 1280px) {
+  .navbarlist {
+    width: 17%;
+  }
+
+  .header {
+    width: 82%;
+  }
+
+  .content {
+    width: 78%;
+  }
+
+  .profile-section {
+    width: calc(100% - 16px);
+  }
+
+  .pageTitle {
+    font-size: 18px;
+    max-width: 28%;
+  }
+
+  .patientBlock {
+    width: 38%;
+    gap: 8px;
+  }
+
+  table:not(#drugTable, .result-table, .summaryTable) tbody {
+    height: calc(83.5vh - 340px);
+  }
+
+  .dialogContent {
+    width: 320px;
+  }
+}

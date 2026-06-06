@@ -1,0 +1,103 @@
+/* Make the patient page a flex column so table fills leftover space
+   and pagination is never pushed off-screen */
+#patientPage.content {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#addPatientContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+#addPatientContainer button {
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* ====== page ====== */
+.pagination {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.pagination button {
+  margin: 2px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #f0f0f0;
+  transition: background 0.2s ease;
+}
+
+.pagination button:hover {
+  background: #ddd;
+}
+
+.pagination button.active {
+  background: #007bff;
+  color: white;
+  font-weight: bold;
+}
+
+/* ====== Search Container ====== */
+.search-container {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  margin-bottom: 10px;
+  flex-shrink: 0;
+}
+
+.search-box {
+  display: table-cell;
+  padding: 5px;
+  vertical-align: middle;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 13px;
+}
+
+.search-box input:focus {
+  outline: none;
+}
+
+/* Notebook breakpoints — shrink further on shorter screens */
+@media (max-width: 1600px) {
+  #patientPage #patientTable tbody {
+    height: calc(83.5vh - 250px);
+  }
+}
+
+@media (max-width: 1440px) {
+  #patientPage #patientTable tbody {
+    height: calc(83.5vh - 260px);
+  }
+}
+
+@media (max-width: 1366px) {
+  #patientPage #patientTable tbody {
+    height: calc(83.5vh - 270px);
+  }
+}
+
+@media (max-width: 1280px) {
+  #patientPage #patientTable tbody {
+    height: calc(83.5vh - 280px);
+  }
+}
+

@@ -1,0 +1,123 @@
+/* ======  dashboard.jsp  ====== */
+.dashboard {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 20px;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.chart-section {
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.chart-header h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.chart-filter button {
+  padding: 6px 12px;
+  margin-left: 5px;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.chart-filter button:hover {
+  background: #f0f0f0;
+}
+
+.chart-container {
+  width: 100%;
+  height: 300px;
+}
+
+.calendar {
+  z-index: 1000;
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  width: 350px;
+  height: 355px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.calendar-header button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.day-name {
+  text-align: center;
+  font-weight: bold;
+  padding: 5px 0;
+}
+
+.day {
+  text-align: center;
+  padding: 10px 0;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+}
+
+.day.has-home {
+  background: #28a74533;
+}
+/* ======  stat  ====== */
+.stat {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column: 1 / -1;
+  padding: 5px 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.stat-card {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.stat-card p {
+  font-size: xx-large;
+  font-weight: bold;
+}
+.stat-card h4 {
+  margin-top: 0;
+  font-size: larger;
+}

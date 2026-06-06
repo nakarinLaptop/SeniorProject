@@ -1,0 +1,219 @@
+#calendarStaffPage {
+    overflow: auto;
+}
+
+.calendar-layout {
+    display: grid;
+    grid-template-columns: 1.1fr 1.6fr;
+    gap: 18px;
+    height: 100%;
+}
+
+.calendar-card,
+.list-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 14px;
+    min-height: 0;
+}
+
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.month-title {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.month-nav {
+    background: #007bff;
+    color: #fff;
+    text-decoration: none;
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+}
+
+.day-name {
+    text-align: center;
+    font-weight: 700;
+    padding: 5px 0;
+}
+
+.day {
+    position: relative;
+    min-height: 56px;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #222;
+    background: #fafafa;
+    display: block;
+}
+
+.day:hover {
+    background: #eef6ff;
+}
+
+.day.empty {
+    border: none;
+    background: transparent;
+    min-height: 56px;
+}
+
+.day-number {
+    position: absolute;
+    right: 8px;
+    top: 6px;
+    font-weight: 700;
+}
+
+.day-count {
+    position: absolute;
+    left: 8px;
+    top: 6px;
+    font-size: 12px;
+    background: #007bff;
+    color: #fff;
+    border-radius: 10px;
+    padding: 1px 7px;
+}
+
+.day.today {
+    border-color: #007bff;
+}
+
+.day.selected {
+    background: #dff0ff;
+    border-color: #2b8fff;
+}
+
+.list-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.list-card {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+#calendarCaseList {
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0;
+}
+
+#calendarNotePanel {
+    flex: 1;
+    border-top: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    padding-top: 8px;
+    gap: 6px;
+}
+
+.note-title {
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+#calendarNoteArea {
+    flex: 1;
+    min-height: 0;
+    resize: none;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    background: #fff;
+    color: #333;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.note-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.btn-note-save {
+    padding: 6px 18px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-note-save:hover {
+    background: #0056b3;
+}
+
+.btn-note-cancel {
+    padding: 6px 18px;
+    background: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-note-cancel:hover {
+    background: #a71d2a;
+}
+
+.case-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    background: #fafafa;
+    cursor: pointer;
+}
+
+.case-index {
+    font-weight: 700;
+}
+
+.case-name {
+    flex: 1;
+    font-weight: 700;
+}
+
+.case-meta {
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-size: 12px;
+}
+
+@media (max-width: 1000px) {
+    .calendar-layout {
+        grid-template-columns: 1fr;
+    }
+}

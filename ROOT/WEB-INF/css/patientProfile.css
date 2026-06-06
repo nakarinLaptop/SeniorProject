@@ -1,0 +1,28 @@
+#patientSelectedPage {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 20px;
+}
+#checkupDetail {
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 12px;
+    height: auto;
+    border-color: green;
+    overflow: auto;
+}
+#checkupDetail h3 {
+    margin-top: 0;
+}
+/* ========== ตาราง ==========*/
+.patientPageTable {
+    height: 200px !important;
+}
+.patientPageTable tbody {
+    height: auto !important;
+    overflow: auto;
+}
+h4 {
+    margin: 0;
+}

@@ -1,0 +1,205 @@
+/* head */
+#diarySummary {
+    display: flex;
+    justify-content: space-around;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.SummaryBox {
+    display: flex;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 15px 30px;
+    width: 350px;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: large;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+.caseLine {
+    display: flex;
+    align-items: center;
+}
+
+/* หน้าแรก--main content */
+#todayTaskDiv {
+    height: 600px;
+}
+
+
+#todayTask {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#homeCase,
+#hosCase {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    height: 60%;
+    overflow-y: auto;
+}
+
+.case-title {
+    font-weight: bold;
+    font-size: large;
+    position: sticky;
+    top: 0;
+    background-color: #ffffff;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.case-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    background: #f9f9f9;
+    gap: 10px;
+}
+.case-row.success {
+    background-color: #e8f5e9;
+    /* เขียวอ่อน */
+}
+
+.case-row.no-contact {
+    background-color: #fff3e0;
+    /* ส้มอ่อน */
+}
+
+.case-row.reject {
+    background-color: #fdecea;
+    /* แดงอ่อน */
+}
+.case-row:hover {
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+.case-name {
+    flex: 1;
+    font-weight: bold;
+}
+
+.case-confident {
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 2px 5px;
+}
+
+.btn-predict {
+    border: none;
+    border-radius: 5px;
+    padding: 3px 8px;
+    cursor: pointer;
+}
+
+.btn-predict:hover {
+    background-color: rgb(4, 151, 4);
+}
+
+
+.btn-predict {
+    color: white;
+    background: green;
+}
+
+
+.case-index {
+    margin-right: 5px;
+}
+
+/* dialog predict in main */
+.prediction-result-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 3000;
+}
+
+.prediction-result-modal .result-container {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80%;
+    overflow-y: auto;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.prediction-result-modal .result-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.prediction-result-modal .selected-option {
+    background: #f7f7f7;
+    width: 300px;
+    margin: 0 auto 20px;
+    padding: 12px 0;
+    border-radius: 10px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.prediction-result-modal .home-icon {
+    font-size: 20px;
+}
+
+.prediction-result-modal .result-table {
+    width: 90%;
+    margin: 0 auto 20px;
+    border-collapse: collapse;
+    font-size: 16px;
+}
+
+.prediction-result-modal .result-table th {
+    background: #3a6f22;
+    color: white;
+    padding: 12px 10px;
+}
+
+.prediction-result-modal .result-table td {
+    border-bottom: 1px solid #ddd;
+    padding: 12px 10px;
+}
+
+.prediction-result-modal .check {
+    color: #3a6f22;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.prediction-result-modal .back-btn {
+    margin-top: 20px;
+    background: #2a2a2a;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.prediction-result-modal .back-btn:hover {
+    background: #000;
+}

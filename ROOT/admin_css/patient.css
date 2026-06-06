@@ -1,0 +1,262 @@
+#patientPage.content,
+#doctorPage.content {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#addPatientContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+#addDoctorContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  margin-bottom: 6px;
+}
+
+#addPatientContainer button {
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#rightDetailSection {
+  display: none;
+}
+#rightDetailSection.open {
+  display: block;
+}
+/* ====== page ====== */
+.pagination {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.pagination button {
+  margin: 2px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #f0f0f0;
+  transition: background 0.2s ease;
+}
+
+.pagination button:hover {
+  background: #ddd;
+}
+
+.pagination button.active {
+  background: #007bff;
+  color: white;
+  font-weight: bold;
+}
+
+/* ====== Search Container ====== */
+.search-container {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  margin-bottom: 10px;
+  flex-shrink: 0;
+}
+
+.search-box {
+  display: table-cell;
+  padding: 5px;
+  vertical-align: middle;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 13px;
+}
+
+.search-box input:focus {
+  outline: none;
+}
+ 
+button {
+      padding: 6px 16px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 13px;
+}
+
+.search-btn {
+  padding: 6px 16px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.search-btn:hover {
+  background: #0056b3;
+}
+
+/* ====== patient table ====== */
+.search-box-btn {
+  text-align: center;
+}
+
+.search-box-btn .search-btn {
+  width: 100%;
+}
+
+.col-hidden {
+  display: none;
+}
+
+.col-action {
+  text-align: center;
+}
+
+.col-center {
+  text-align: center;
+}
+
+.error-row {
+  color: red;
+  text-align: center;
+}
+
+/* ====== Edit Patient Dialog ====== */
+.dialogHeader {
+  display: flex;
+  justify-content: space-around;
+}
+.dialogHeader header {
+  margin: 0;
+}
+.edit-form-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 16px;
+}
+
+.edit-form-table td.label-cell {
+  padding: 6px 8px;
+  width: 110px;
+  font-weight: bold;
+}
+
+.edit-form-table td.input-cell {
+  padding: 6px 4px;
+}
+
+.edit-form-table input[type="text"],
+.edit-form-table input[type="password"],
+.edit-form-table input[type="date"],
+.edit-form-table select {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.dialogActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.btn-secondary {
+  background: #6c757d;
+}
+
+.btn-secondary:hover {
+  background: #5a6268;
+}
+
+/* ====== patient right page ====== */
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+/* ====== Restore Doctor/Patient Dialog ====== */
+#restoreDoctorList,
+#restorePatientList ,
+#restoreAdminList{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+#restoreDoctorList li,
+#restorePatientList li,
+#restoreAdminList li {
+  padding: 8px 12px;
+  margin-bottom: 4px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 1px solid #ddd;
+}
+
+#restoreDoctorList li:hover,
+#restorePatientList li:hover,
+#restoreAdminList li:hover {
+  background-color: #e8f0fe;
+}
+
+#restoreDoctorList li.selected,
+#restorePatientList li.selected ,
+#restoreAdminList li.selected{
+  background-color: #1a73e8;
+  color: #fff;
+}
+
+#csvImportSection p{
+  word-break: break-all;
+  white-space: pre-line;
+  overflow-wrap: break-word;
+  display: block;
+  margin-bottom: 10px;
+}
+@media (max-width: 1600px) {
+  #patientPage #patientTable tbody {
+    height: calc(83.5vh - 250px);
+  }
+}
+
+@media (max-width: 1440px) {
+  #patientPage #patientTable tbody {
+    height: calc(83.5vh - 260px);
+  }
+}
+
+@media (max-width: 1366px) {
+  #patientPage #patientTable tbody {
+    height: calc(83.5vh - 270px);
+  }
+}
+
+@media (max-width: 1280px) {
+  #patientPage #patientTable tbody {
+    height: calc(83.5vh - 280px);
+  }
+}
+

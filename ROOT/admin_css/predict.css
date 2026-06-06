@@ -1,0 +1,152 @@
+/* ====== Page layout ====== */
+#predictPage {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  margin-bottom: 8px;
+}
+
+/* ====== Confident range inputs ====== */
+.confident-range-box {
+  display: table-cell;
+  vertical-align: middle;
+  padding: 5px;
+}
+
+.confident-range-box input {
+  display: block;
+  width: 100%;
+  padding: 4px 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 13px;
+}
+
+.confident-range-box input:first-child {
+  margin-bottom: 4px;
+}
+
+.confident-range-box input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+}
+
+/* ====== Table ====== */
+#predictTable {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+#predictTable thead tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+#predictTable tbody {
+  display: block;
+  overflow-y: auto;
+}
+
+#predictTable tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+/* ====== Pagination ====== */
+.pagination {
+  flex-shrink: 0;
+  margin-top: 8px;
+  text-align: center;
+}
+
+/* ====== Search ====== */
+.search-container {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  margin-bottom: 10px;
+  flex-shrink: 0;
+}
+
+.search-box {
+  display: table-cell;
+  padding: 5px;
+  vertical-align: middle;
+}
+
+.search-box input,
+.search-box select {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 13px;
+}
+
+.search-box input:focus,
+.search-box select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+}
+
+/* ====== Search button ====== */
+.search-btn {
+  padding: 6px 16px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.search-btn:hover {
+  background: #0056b3;
+}
+
+/* ====== Status badges ====== */
+.status-pending {
+  color: #856404;
+  background: #fff3cd;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.status-completed {
+  color: #155724;
+  background: #d4edda;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.status-unreachable {
+  color: #721c24;
+  background: #f8d7da;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.status-rejected {
+  color: #383d41;
+  background: #e2e3e5;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+}

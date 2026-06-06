@@ -1,0 +1,141 @@
+#medExaminationPage {
+    display: flex;
+    justify-content: center;
+}
+#historyTableSection {
+    display: none;
+}
+
+.vLine {
+    background-color: black;
+    width: 100%;
+    height: 90%;
+    margin: auto 0;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+}
+
+
+.section button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#formSectionHeader {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+#formSectionFooter {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#formSectionContent {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex: 1;
+
+}
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    width: 30%;
+    height: 80%;
+    border-radius: 16px;
+    padding: 15px 20px;
+}
+.formContainerHeader {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.formContainerHeader button {
+    width: 120px;
+    height: 50px;
+    padding: 6px 10px;
+    font-size: 14px;
+}
+#deatailContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+#historyForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+#historyForm button {
+    margin-top: 20px;
+}
+/* dialog */
+.Dialog {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background: #fff;
+    width: 500px;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.modal-content textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.close {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.dialog-actions {
+    margin-top: 15px;
+    text-align: right;
+}
+.text-box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    white-space: pre-wrap;
+    max-height: 200px;
+    overflow-y: auto;
+}
+.itemList {
+    padding: 8px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    max-height: 200px;
+    overflow-y: auto;
+}
+.itemList:hover {
+    background-color: #f0f0f0;
+}
+
+

@@ -1,0 +1,305 @@
+#todayTaskDiv {
+    height: 90%;
+}
+
+
+#todayTask {
+    display: grid;
+    grid-template-columns: 1.1fr 1.6fr;
+    gap: 20px;
+    min-height: 80%;
+}
+
+#patientInfo {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    min-height: 200px;
+    padding: 20px;
+}
+
+
+#homeCase {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    height: 80vh;
+    min-height: 400px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.case-title {
+    font-size: medium;
+    background-color: #ffffff;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+#homeCaseList {
+    flex: 1;
+    overflow-y: auto;
+    padding: 6px;
+}
+
+#staffNotePanel {
+    flex: 1;
+    border-top: 1px solid #ddd;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.note-title {
+    font-weight: 700;
+}
+
+.note-target {
+    font-size: 13px;
+    color: #444;
+}
+
+#staffAppointmentNote {
+    flex: 1;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    padding: 10px;
+    resize: none;
+    font-family: inherit;
+}
+/* left side */
+#leftPanel {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 14px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.mini-cal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.mini-cal-month-title {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.mini-cal-nav {
+    background: #007bff;
+    color: #fff;
+    text-decoration: none;
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+.mini-cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+}
+
+.mini-cal-day-name {
+    text-align: center;
+    font-weight: 700;
+    padding: 5px 0;
+}
+
+.mini-cal-day {
+    position: relative;
+    min-height: 56px;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    background: #fafafa;
+}
+
+.mini-cal-day:hover {
+    background: #eef6ff;
+}
+
+.mini-cal-empty {
+    border: none;
+    background: transparent;
+    min-height: 56px;
+}
+
+.mini-cal-day-num {
+    position: absolute;
+    right: 8px;
+    top: 6px;
+    font-weight: 700;
+}
+
+.mini-cal-day-cnt {
+    position: absolute;
+    left: 8px;
+    top: 6px;
+    font-size: 12px;
+    background: #007bff;
+    color: #fff;
+    border-radius: 10px;
+    padding: 1px 7px;
+}
+
+.mini-cal-today {
+    border-color: #007bff;
+    background: #dff0ff;
+}
+
+
+#patientDetailPanel {
+    overflow-y: auto;
+}
+
+/* right side */
+.case-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    gap: 10px;
+}
+.case-row.selected {
+    background-color: #969595;
+}
+.case-row.complete {
+    background-color: #e8f5e9;
+}
+
+.case-row.unreachable {
+    background-color: #fff3e0;
+}
+
+.case-row.rejected {
+    background-color: #fdecea;
+}
+.case-row:hover {
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+.case-name {
+    flex: 1;
+    font-weight: bold;
+}
+
+.case-confident {
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 2px 5px;
+}
+
+.btn-predict {
+    border: none;
+    border-radius: 5px;
+    padding: 3px 8px;
+    cursor: pointer;
+}
+
+.btn-predict:hover {
+    background-color: rgb(4, 151, 4);
+}
+
+
+.btn-predict {
+    color: white;
+    background: green;
+}
+
+.case-index {
+    margin-right: 5px;
+}
+
+.case-time-left {
+    min-width: 120px;
+    text-align: center;
+    border: 1px solid #000;
+    border-radius: 6px;
+    padding: 3px 8px;
+    background-color: #fff;
+    font-size: 13px;
+}
+
+.appointment-datetime {
+    border: 1px solid #000;
+}
+
+#saveButtonDiv {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 8px;
+}
+
+#saveButtonDiv button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#saveButtonDiv button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    #todayTask {
+        grid-template-columns: 1fr 1fr;
+        min-height: unset;
+    }
+
+    #homeCase {
+        height: 60vh;
+    }
+
+    #caseDetail {
+        height: 45vh;
+    }
+}
+
+@media (max-width: 768px) {
+    #todayTask {
+        grid-template-columns: 1fr;
+    }
+
+    #homeCase {
+        height: 50vh;
+        min-height: 300px;
+    }
+
+    #caseDetail {
+        height: auto;
+        min-height: 200px;
+    }
+
+    #patientInfo {
+        min-height: unset;
+    }
+
+    .case-row {
+        flex-wrap: wrap;
+        padding: 8px 12px;
+    }
+
+    .case-time-left {
+        min-width: unset;
+        font-size: 12px;
+    }
+
+    .reason-cell {
+        max-height: none;
+        overflow-y: visible;
+    }
+}

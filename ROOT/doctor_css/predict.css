@@ -1,0 +1,376 @@
+/* ====== predict.jsp ====== */
+/* ช่องค้นหาคนไข้+ชื่อคนไข้ */
+
+.idserchbox {
+  position: fixed;
+  top: 10%;
+  right: 1%;
+  width: 20%;
+  height: 50px;
+  margin: 10px;
+  border: #000 1px solid;
+  border-radius: 12px;
+  background-color: aqua;
+}
+
+#searchPatient {
+  width: 100%;
+  height: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#searchPatient button {
+  margin: 5px;
+  height: 30px;
+}
+
+#searchPatient input {
+  margin: 5px;
+  padding: 5px;
+  height: 20px;
+}
+
+#delPatientSelectBtn {
+  display: flex;
+  width: 30px;
+
+}
+
+#delPatientSelectBtn:hover {
+  cursor: pointer;
+  transform: scale(1.5);
+}
+
+#patientInfo {
+  /*display: none;*/
+  height: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+
+}
+
+#patientInfo h4 {
+  flex: 1;
+}
+/* ====== หน้าเลือกlab ====== */
+#lablistbox {
+  display: none;
+}
+#lablistbox {
+  width: 100%;
+}
+
+.lablistHeader {
+  display: inline-flex;
+  width: 20%;
+  justify-content: space-between;
+  margin: 10px;
+  align-items: center;
+}
+
+.lablistHeader h3 {
+  margin: 0;
+}
+
+.lablistHeader button {
+  padding: 5px 10px;
+  cursor: pointer;
+  height: 30px;
+}
+
+.tablinks {
+  cursor: pointer;
+}
+
+.tablinks.active {
+  background-color: aqua;
+}
+
+.tab-content {
+  width: 100%;
+  height: 550px;
+  padding: 10px;
+}
+
+.tab {
+  margin: 10px 5px;
+}
+
+.checkbox-group {
+  display: none;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 550px;
+}
+
+.checkbox-group label {
+  cursor: pointer;
+  width: 200px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.checkbox-group input[type="checkbox"] {
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+}
+
+.lab-sub h3 {
+  font-weight: bold;
+  font-size: 16px;
+  margin: 0 0 5px;
+}
+
+.lab-sub label {
+  margin-bottom: 2px;
+  font-size: 14px;
+}
+
+.lab-subNoheader,
+.lab-sub {
+  padding: 10px;
+  margin-bottom: 2px;
+  border: #000 1px solid;
+  width: 260px;
+  font-size: 14px;
+}
+
+#result {
+  border: #000 1px solid;
+  border-radius: 5px;
+  position: fixed;
+  bottom: 8%;
+  width: 50%;
+  height: 13%;
+  padding: 10px;
+  margin: 10px 20px;
+}
+
+#predictButton {
+  position: fixed;
+  width: 80px;
+  height: 40px;
+  bottom: 3%;
+  padding: 5px 10px;
+  margin: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: large;
+}
+
+#predictButton:hover {
+  background-color: gray;
+}
+
+/* ====== หน้าแสดงผลการทำนาย ====== */
+#predictionResult {
+  display: block;
+  width: 100%;
+}
+
+#predictionResult .result-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#predictionResult .result-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+#predictionResult .selected-option {
+  background: #f7f7f7;
+  width: 300px;
+  margin: 0 auto 25px;
+  padding: 12px 0;
+  border-radius: 10px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+#predictionResult .home-icon {
+  font-size: 20px;
+}
+
+#predictionResult .result-table {
+  width: 90%;
+  margin: 10px auto 40px;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+
+#predictionResult .result-table th {
+  background: #3a6f22;
+  color: white;
+  padding: 12px 10px;
+}
+
+#predictionResult .result-table td {
+  border-bottom: 1px solid #ddd;
+  padding: 12px 10px;
+}
+
+#predictionResult .check {
+  color: #3a6f22;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.appointmentDateDiv {
+  margin-bottom: 10px;
+}
+
+.backToSelectLabBtn {
+  margin-top: 25px;
+  background: #2a2a2a;
+  color: white;
+  padding: 10px 30px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#predictionResult .back-btn:hover {
+  background: #000;
+}
+
+/* ======เลือกหน่วยงานตรวจ ====== */
+.selectedUnit {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 10% 40% 50%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.selectedUnit button {
+  padding: 5px 10px;
+  background-color: #000;
+  color: white;
+  border-radius: 8px;
+}
+#selectedUnit2 {
+  display: none;
+}
+#main2 button:hover {
+  background-color: #2a2a2a;
+  cursor: pointer;
+}
+
+#SelectUnitTitle {
+  display: flex;
+  align-items: center;
+}
+
+#SelectUnitTitle h2 {
+  margin: 0 auto;
+}
+
+#formSelectUnit {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.form-item {
+  margin: 10px;
+}
+
+#formSelectUnit {
+  position: relative;
+}
+
+#labTable {
+  position: relative;
+}
+
+#labTable table {
+  width: 100%;
+}
+
+#labTable th {
+  border-bottom: 1px solid black;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+#labTable button,
+.form-item button {
+  right: 0;
+  bottom: 0;
+  position: absolute;
+}
+/* ======ตารางประวัติการตรวจ ====== */
+#predictTable {
+  display: none;
+}
+
+.history-section {
+  margin-top: 10px;
+  border-radius: 10px;
+  padding: 16px;
+  background: #fff;
+}
+
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  gap: 10px;
+}
+
+.history-header h2 {
+  margin: 0;
+}
+
+.search-container {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  margin-bottom: 10px;
+}
+
+.search-box {
+  display: table-cell;
+  padding: 5px;
+  vertical-align: middle;
+}
+
+.search-box input,
+.search-box select,
+.search-box button {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.search-box button {
+  cursor: pointer;
+  background: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+.search-box button:hover {
+  background: #0056b3;
+  border-color: #0056b3;
+}
+

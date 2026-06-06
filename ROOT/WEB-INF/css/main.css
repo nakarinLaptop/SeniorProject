@@ -1,0 +1,8 @@
+#patientSelectedPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#selectPatientDiv h2{
+    margin-bottom: 30px;
+}

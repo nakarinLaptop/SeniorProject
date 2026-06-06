@@ -1,0 +1,342 @@
+/* Grid layout for patient data page */
+#patientDataPage {
+  overflow: auto;
+  max-height: 90vh;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+
+.patient-info {
+  grid-row: 1 / 4;
+  grid-column: 1;
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  font-size: 1.1em;
+  margin-bottom: 20px;
+}
+
+.table-section {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.search-container {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    margin-bottom: 10px;
+}
+
+.search-box {
+    display: table-cell;
+    padding: 5px;
+    vertical-align: middle;
+}
+
+.search-box-stacked {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    vertical-align: middle;
+}
+
+.search-box input,
+.search-box select {
+    width: 100%;
+    padding: 6px 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 13px;
+    background-color: #fff;
+}
+
+.search-box input:focus,
+.search-box select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+}
+
+.summaryTableContainer {
+  overflow-y: auto;
+  max-height: 30vh;
+  border: 1px solid #ccc;
+}
+
+.summaryTable {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.summaryTable tbody {
+  display: block;
+  max-height: 24vh;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.summaryTable thead th{
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  border-bottom: 2px solid #dee2e6;
+  background: #007bff;
+}
+.summaryTable thead,
+.summaryTable tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+#prescriptionTable {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+#prescriptionTable thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #007bff;
+  color: white;
+  font-weight: 600;
+  padding: 10px;
+  text-align: center;
+  border-bottom: 2px solid #0056b3;
+}
+#prescriptionTable tbody {
+  display: block;
+  max-height: 24vh;
+  overflow-y: auto;
+  width: 100%;
+}
+#prescriptionTable thead,
+#prescriptionTable tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  height: 50px;
+}
+#prescriptionTable td {
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+  border-bottom: 1px solid #ddd;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#prescriptionTable tr:hover {
+  background: #f9f9f9;
+}
+
+/* Responsive for notebook/tablet */
+@media (max-width: 1366px) {
+  #patientDataPage {
+    max-height: 80vh;
+    padding: 10px;
+    gap: 10px;
+  }
+  .patient-info {
+    padding: 10px;
+    font-size: 1em;
+  }
+  .patient-grid-table th, .patient-grid-table td {
+    padding: 6px;
+  }
+}
+@media (max-width: 1024px) {
+  #patientDataPage {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    max-height: 70vh;
+  }
+  .patient-info {
+    grid-row: auto;
+    grid-column: auto;
+    margin-bottom: 10px;
+  }
+}
+
+/* ====== Detail modals ====== */
+.detail-modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+.detail-modal-overlay.active {
+  display: flex;
+}
+.detail-modal-box {
+  background: #fff;
+  border-radius: 8px;
+  padding: 28px 32px;
+  max-width: 650px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+}
+.detail-modal-box h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+.detail-modal-info-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+.detail-modal-info-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 14px;
+  flex-wrap: wrap;
+}
+.detail-modal-info-row .dim-label {
+  font-weight: 600;
+  color: #555;
+  white-space: nowrap;
+  min-width: 90px;
+  flex-shrink: 0;
+}
+.detail-modal-info-row > span:not(.dim-label) {
+  flex: 1;
+  min-width: 0;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.detail-modal-info-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 8px;
+}
+.detail-modal-info-table td {
+  padding: 7px 4px;
+  vertical-align: top;
+}
+.detail-modal-info-table td:first-child {
+  font-weight: bold;
+  width: 1%;
+  white-space: nowrap;
+  padding-right: 16px;
+}
+.detail-modal-close-row {
+  text-align: right;
+  margin-top: 20px;
+}
+
+/* ====== Buttons ====== */
+#patientDataPage button,
+.detail-modal-box button {
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 14px;
+  transition: background 0.18s, opacity 0.18s;
+}
+#patientDataPage button:hover,
+.detail-modal-box button:hover {
+  opacity: 0.88;
+}
+
+.btn-search {
+  width: 100%;
+  background: #007bff;
+  color: #fff;
+  padding: 7px 14px !important;
+}
+.btn-search:hover {
+  background: #0056b3;
+  opacity: 1 !important;
+}
+
+.btn-view {
+  background: #007bff;
+  color: #fff;
+  padding: 5px 12px !important;
+  font-size: 12px !important;
+}
+.btn-view:hover {
+  background: #0056b3;
+  opacity: 1 !important;
+}
+
+.btn-close-modal {
+  background: #007bff;
+  color: #fff;
+  padding: 7px 20px !important;
+}
+.btn-close-modal:hover {
+  background: #0056b3;
+  opacity: 1 !important;
+}
+
+/* Edit button inside modals */
+.btn-edit {
+  background: #28a745;
+  color: #fff;
+  padding: 7px 20px !important;
+}
+.btn-edit:hover {
+  background: #1e7e34;
+  opacity: 1 !important;
+}
+
+.detail-modal-close-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+#prescriptionDetailModal .detail-modal-box {
+  max-width: 860px;
+  overflow-x: hidden;
+}
+#prescModalContent {
+  overflow-y: visible;
+}
+
+.detail-modal-medicine-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+.detail-modal-medicine-table th,
+.detail-modal-medicine-table td {
+  padding: 8px;
+  border: 1px solid #dee2e6;
+  text-align: center;
+  font-size: 13px;
+  max-width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.detail-modal-medicine-table th {
+  background: #007bff;
+  color: #fff;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+}
+.detail-modal-medicine-table tr:nth-child(even) td {
+  background: #f8f9fa;
+}

@@ -1,0 +1,502 @@
+/* ====== หน้า สร้างใบสั่งยา ====== */
+#prescriptionPage {
+  display: flex;
+  flex-direction: column;
+}
+#prescriptionPage.editing-mode {
+  background-color: #fef3e2;
+}
+#prescriptionPage.editing-mode .section {
+  background-color: white;
+}
+#addDrugContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: max-content;
+  gap: 20px;
+  padding: 20px;
+}
+#prescriptionHeader {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+}
+#prescriptionHeader button {
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#buttonContainer {
+  display: flex;
+  justify-content: end;
+  align-items: start;
+}
+#buttonContainer:has(button[onclick="clearPrescriptionForm()"]) {
+  display: none;
+}
+#prescriptionPage.editing-mode #buttonContainer:has(button[onclick="clearPrescriptionForm()"]) {
+  display: flex;
+}
+#returnBtn {
+  width: 100px;
+  height: 50px;
+  font-size: 18px;
+  cursor: pointer;
+}
+.section {
+  margin-bottom: 10px;
+}
+
+.drug-container {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  margin: 8px 0;
+}
+
+.row label {
+  width: 120px;
+  font-weight: bold;
+}
+
+.row input,
+.row select,
+.row .combobox {
+  flex: 1;
+}
+
+#drugPopup .itemList.allergy-drug {
+  background-color: #ffe1e1;
+  border-left: 4px solid #e53935;
+}
+
+/* combobox */
+.combobox {
+  position: relative;
+  min-width: 200px;
+}
+
+.combobox input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.combo-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 100%;
+  width: max-content;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 999;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.hidden {
+  display: none;
+}
+
+.item {
+  padding: 8px;
+  cursor: pointer;
+  background: white;
+  white-space: nowrap;
+}
+
+.item:hover {
+  background: #f2f2f2;
+}
+/* ===== ตารางยาในใบสั่งยา ===== */
+.tableContainer {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: 430px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+#drugTable {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin-top: 0;
+}
+
+#drugTable thead {
+  display: table-header-group !important;
+}
+
+#drugTable thead th {
+  position: sticky;
+  top: 0;
+  background: #007bff;
+  color: white;
+  z-index: 10;
+  font-weight: 600;
+  padding: 10px;
+}
+
+#drugTable th,
+#drugTable td {
+  height: 40px;
+  max-height: 40px;
+  padding: 0 8px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: 1px solid #ddd;
+  vertical-align: middle;
+}
+.drug-row td {
+  height: 40px !important;
+  max-height: 40px;
+  line-height: 40px !important;
+  vertical-align: middle;
+}
+#drugTable tbody tr:hover {
+  background: #f5f5f5;
+}
+#drugTable input,
+#drugTable select {
+  height: 28px;
+  line-height: 28px;
+}
+
+/* ปุ่มด้านล่าง */
+#buttonZone {
+  display: flex;
+  justify-content: center;   
+  gap: 20px;        
+  grid-column: 1 / -1;
+}
+
+#buttonZone button {
+  padding: 10px 10px;
+  width: 150px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+}
+
+#buttonZone button:hover {
+  background-color: #0069d9;
+}
+
+/* ====== prescription table ====== */
+#prescriptionTableContainer {
+  display: none;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sectionHeader button {
+  height: 30px;
+  width: 100px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+#backToAddDrugBtn {
+  padding: 10px 10px;
+  width: 50px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+}
+
+/* ====== ปุ่ม รายละเอียด ====== */
+.detailBtn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.detailBtn:hover {
+  background: #138496;
+}
+
+/* ====== Search Container ====== */
+.search-container {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  margin-bottom: 10px;
+  flex-shrink: 0;
+}
+
+.search-box {
+  display: table-cell;
+  padding: 5px;
+  vertical-align: middle;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 13px;
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+}
+
+.search-box button {
+  padding: 6px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.search-box button:hover {
+  background-color: #0056b3;
+}
+
+/* Detail modal */
+.detail-modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.detail-modal-overlay.active {
+  display: flex;
+}
+
+.detail-modal-box {
+  background: #fff;
+  border-radius: 8px;
+  padding: 28px 32px;
+  max-width: 650px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.detail-modal-box h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.detail-modal-info-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.detail-modal-info-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 14px;
+  flex-wrap: wrap;
+}
+
+.detail-modal-info-row .dim-label {
+  font-weight: 600;
+  color: #555;
+  white-space: nowrap;
+  min-width: 90px;
+  flex-shrink: 0;
+}
+
+.detail-modal-info-row>span:not(.dim-label) {
+  flex: 1;
+  min-width: 0;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.detail-modal-info-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 8px;
+}
+
+.detail-modal-info-table td {
+  padding: 7px 4px;
+  vertical-align: top;
+}
+
+.detail-modal-info-table td:first-child {
+  font-weight: bold;
+  width: 1%;
+  white-space: nowrap;
+  padding-right: 16px;
+}
+
+.detail-modal-close-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+
+.btn-close-modal {
+  padding: 7px 18px;
+  background-color: #6c757d;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-close-modal:hover {
+  background-color: #5a6268;
+}
+
+.btn-edit-modal , #printPrescBtn{
+  padding: 7px 18px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-edit-modal:hover {
+  background-color: #0069d9;
+}
+
+.btn-delete-modal {
+  padding: 7px 18px;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-delete-modal:hover {
+  background-color: #c82333;
+}
+
+/* ====== Prescription table responsive (notebook breakpoints) ====== */
+@media (max-width: 1600px) {
+  #prescriptionTableContainer #prescriptionTable tbody {
+    height: calc(83.5vh - 250px);
+  }
+  .tableContainer {
+    height: calc(83.5vh - 370px);
+  }
+}
+
+@media (max-width: 1440px) {
+  #prescriptionTableContainer #prescriptionTable tbody {
+    height: calc(83.5vh - 260px);
+  }
+  .tableContainer {
+    height: calc(83.5vh - 380px);
+  }
+}
+
+@media (max-width: 1366px) {
+  #prescriptionTableContainer #prescriptionTable tbody {
+    height: calc(83.5vh - 270px);
+  }
+  .tableContainer {
+    height: calc(83.5vh - 390px);
+  }
+}
+
+@media (max-width: 1280px) {
+  #prescriptionTableContainer #prescriptionTable tbody {
+    height: calc(83.5vh - 280px);
+  }
+  .tableContainer {
+    height: calc(83.5vh - 400px);
+  }
+}
+
+.modal-content {
+  background: #fff;
+  width: 500px;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.close {
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.itemListContainer {
+  border: 1px solid #ccc;
+  max-height: 500px;
+  height: 400px;
+  overflow-y: auto;
+  margin: 5px;
+}
+.itemList {
+  padding: 8px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  background: white;
+}
+
+.itemList:hover {
+  background-color: #f0f0f0;
+}
+
+.itemList.selected {
+  background-color: #007bff;
+  color: white;
+}
